@@ -1,0 +1,9 @@
+base
+datasets
+grDevices
+graphics
+knitr
+maptools
+sp
+stats
+utils

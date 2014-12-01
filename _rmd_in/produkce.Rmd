@@ -1,0 +1,51 @@
+---
+layout: page
+title: PRODUKCE
+permalink: /produkce/
+output: html_fragment
+weight: 5
+---
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r, echo=FALSE, cache=TRUE, message=FALSE, warning=FALSE, fig.cap='ČR a rozvodnice', fig.height=4}
+proot = '/home/hanel/PED/cv_gis/data/'
+setwd(proot)
+
+# načti balík
+require(maptools)
+
+# načti polygonové vrstvy
+cr = readShapePoly('cr_sjtsk')
+pov = readShapePoly('bilan')
+par(mar = c(0,0,0,0))
+plot(pov, col='lightblue2', border = 'white')
+plot(cr, add=TRUE, border='black', lty=6, lwd = 3)
+
+```
+
+```{r, echo = -1, message=FALSE, results='asis'}
+require(googleVis)
+tab = pov@data
+## oprava kódování (pravděpodobně nutné jen pro Linux)
+tab$NAZEV1 = iconv(tab$NAZEV1, from = 'cp1250', to = 'utf8')
+tab$NAZEV2 = iconv(tab$NAZEV2, from = 'cp1250', to = 'utf8')
+##
+g = gvisTable(tab, options=list(page='enable', height='automatic', width='automatic'))
+print(g, "chart")
+```

@@ -1,0 +1,27 @@
+---
+layout: page
+title: PORTFOLIO
+permalink: /portfolio/
+output: html_fragment
+weight: 4
+---
+
+### Zpracování dat
+- `data.table`, `dplyr`
+- formátování dat 
+- přístup k datům v běžných formátech (txt, xls, xml, json ...)
+
+### GIS v Rku
+- přístup k standardním formátům
+- běžné vektorové a rastrové operace
+- souřadné systémy
+- vizualizace
+
+### Dokumenty s integrovaným Rkódem
+- základy LaTeXu a (R)markdownu
+- `knitr`
+
+### R a web
+- Shiny
+- html prezentace
+- integrace R do webových stránek (Wordpress, Jekyll)
